@@ -1,0 +1,6 @@
+openai
+pillow
+loguru
+python-dotenv
+opencv-python
+gradio
