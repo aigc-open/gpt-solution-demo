@@ -1,5 +1,8 @@
 from src.video_understanding import BadmintonCompetitionByGPT4o
 from utils import pretty_print_dict
+import dotenv
+
+dotenv.load_dotenv()
 
 predict_prompt = """
 下面的图片序列是一个羽毛球比赛。请你仔细观察这些图片动作。合理分析, 注意可能存在发球直接失误

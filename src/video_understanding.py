@@ -1,6 +1,6 @@
 import cv2
 import requests
-import cv2
+import os
 import numpy as np
 from PIL import Image
 from loguru import logger
