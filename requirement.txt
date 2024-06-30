@@ -4,3 +4,4 @@ loguru
 python-dotenv
 opencv-python
 gradio
+GeneralAgent
