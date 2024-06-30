@@ -32,10 +32,11 @@ def run(video_path="A.mp4",
                                             group_size=group_size, skip_times=skip_times)
     data = {}
     for idx, value in enumerate(res):
-        if value["winer"] == config[idx]:
-            data[f"結果{idx}"] = f"預測值: {} 期望值: {} 測試： pass"
+        winer = value["winer"]
+        if winer == config[idx]:
+            data[f"結果{idx}"] = f"預測值: {winer} 期望值: {config[idx]} 測試： pass"
         else:
-            data[f"結果{idx}"] = f"預測值: {} 期望值: {} 測試： error"
+            data[f"結果{idx}"] = f"預測值: {winer} 期望值: {config[idx]} 測試： error"
     pretty_print_dict(doc="結果", **data)
 
 
