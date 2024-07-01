@@ -125,8 +125,11 @@ class BadmintonCompetitionByGPT4o(VideoUnderstandingByGPT4o):
             last_segment_messages_ = []
             for segment_messages_ in self.group(messages_, group_size=group_size):
                 last_segment_messages_ = segment_messages_
+                
                 if last_segment_messages_:
-                    segment_messages_.extend(last_segment_messages_[0:3])
+                    tmp = last_segment_messages_[0:2]
+                    tmp.extend(segment_messages_)
+                    segment_messages_ = tmp
                 if skip is True:
                     if self.skip_times <= 0:
                         skip = False
@@ -143,7 +146,7 @@ class BadmintonCompetitionByGPT4o(VideoUnderstandingByGPT4o):
                     logger.info(
                         f"跳过本预测帧: {len(segment_messages_)} {segment_messages_}")
                     continue
-                logger.info(f"本次预测帧: {segment_messages_}")
+                logger.info(f"本次预测帧({len(segment_messages_)}): {segment_messages_}")
                 total_seconds, minutes, seconds = self.cal_video_time_by_tps(segment_messages_[
                                                                              0]["image"], interval=interval, seq_len=len(segment_messages_))
                 
