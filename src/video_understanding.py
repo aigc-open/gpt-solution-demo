@@ -124,12 +124,12 @@ class BadmintonCompetitionByGPT4o(VideoUnderstandingByGPT4o):
             skip_times = 1
             last_segment_messages_ = []
             for segment_messages_ in self.group(messages_, group_size=group_size):
-                last_segment_messages_ = segment_messages_
+                # last_segment_messages_ = segment_messages_
                 
-                if last_segment_messages_:
-                    tmp = last_segment_messages_[0:2]
-                    tmp.extend(segment_messages_)
-                    segment_messages_ = tmp
+                # if last_segment_messages_:
+                #     tmp = last_segment_messages_[0:2]
+                #     tmp.extend(segment_messages_)
+                #     segment_messages_ = tmp
                 if skip is True:
                     if self.skip_times <= 0:
                         skip = False
